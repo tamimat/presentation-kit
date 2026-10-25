@@ -40,6 +40,21 @@ def config_script(config):
     return '<script id="presentation-config" type="application/json">'+safe_json(config)+'</script>'
 
 
+def render_thank_you(config, slide, qr_url):
+    """Render a stored QR for a fixed presentation permalink; no QR service needed."""
+    link = config['permalink']
+    url = link['url']
+    if not url.startswith('https://'):
+        raise ValueError('Presentation permalink must use HTTPS')
+    primary = config['languages'][0]['code']
+    values = lambda key: {language['code']: slide.get(key+'_'+language['code'], slide.get(key,'') if language['code']==primary else '') for language in config['languages']}
+    title = localized(config, values('title'), 'h1', 'thankyou-title')
+    summary = localized(config, values('summary'), 'p')
+    label = escape(url.removeprefix('https://').rstrip('/'))
+    href = escape(url, quote=True)
+    return f'<div class="slide-stage thankyou"><div class="thankyou-layout"><div class="thankyou-copy">{title}<div class="thankyou-message">{summary}</div></div><div class="thankyou-share"><a class="thankyou-qr" href="{href}" target="_blank" rel="noopener noreferrer"><img src="{escape(qr_url,quote=True)}" width="512" height="512" alt="QR: {href}"></a><a class="thankyou-link" href="{href}" target="_blank" rel="noopener noreferrer" dir="ltr">{label}</a></div></div></div>'
+
+
 def render(root, config_path):
     root=root.resolve();config=json.loads(config_path.read_text());output=root/config.get('output','index.html')
     slides=json.loads((root/config.get('slides','slides.json')).read_text())
@@ -50,7 +65,9 @@ def render(root, config_path):
     parts=[]
     for n,slide in enumerate(slides,1):
         titles=get(slide,'title');summaries=get(slide,'summary')
-        if slide.get('image'):
+        if slide.get('kind') == 'thankyou':
+            stage = render_thank_you(config, slide, asset_url(root, output, config['permalink']['qrImage']))
+        elif slide.get('image'):
             image=escape(prefix+slide['image'],quote=True)
             visual=f'<img src="{image}" alt="{escape(summaries[primary],quote=True)}" width="1672" height="941" loading="eager">'
             if config.get('captions',True):

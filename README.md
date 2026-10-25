@@ -92,3 +92,13 @@ This repository contains generic components and neutral sample slides. It does
 not contain personal presentations, speaker biographies, deck images, local
 machine paths, private materials or deployment credentials. No live service is
 enabled by default; see `service/README.md` to deploy your own.
+
+## A closing slide with a persistent QR
+
+Add a slide with `kind: "thankyou"`, localized `title` and `summary` fields, and
+configure `permalink` with `url`, `code` and `qrImage` (a project-relative PNG).
+The image is bundled in web and offline exports. Generate it once for the fixed
+permalink, commit it with the deck, and keep it unchanged during content or kit
+updates. A separately maintained redirect can move its destination without
+changing printed codes. Permalink registries and personal deck identities do not
+belong in this generic kit.

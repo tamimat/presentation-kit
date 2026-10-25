@@ -1,5 +1,11 @@
 # Releases
 
+## 1.1.0
+
+Add a multilingual thank-you layout with a large stored QR image and readable
+permanent presentation link. QR identities and redirect destinations stay in
+individual deck configuration, outside the generic kit.
+
 ## 1.0.6
 
 A brief liquid droplet travels between the circular counters when advancing or
