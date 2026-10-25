@@ -77,6 +77,7 @@ def render(root, config_path):
     if (root/'theme.css').exists(): css+=f'<link rel="stylesheet" href="{asset_url(root,output,"theme.css")}">'
     css+=f'<link rel="license" href="{asset_url(root,output,".presentation-kit/runtime/LICENSE")}">'
     css+=f'<link rel="license" href="{asset_url(root,output,".presentation-kit/runtime/assets/fonts/OFL.txt")}">'
+    css+=f'<link rel="license" href="{asset_url(root,output,".presentation-kit/runtime/assets/fonts/OpenRunde-OFL.txt")}">'
     scripts=config_script(config)+''.join(f'<script src="{asset_url(root,output,".presentation-kit/runtime/"+name)}"></script>' for name in ('config.js','presentation.js','app.js','live.js'))
     meta=''
     if config.get('shareUrl'):

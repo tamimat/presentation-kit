@@ -82,8 +82,9 @@ Do not modify an existing release tag. Use a new patch release for fixes.
 
 ## License and scope
 
-App code is licensed under MIT; see `LICENSE`. Bundled Inter fonts retain the SIL
-Open Font License in `runtime/assets/fonts/OFL.txt`. Keep both notices when
+App code is licensed under MIT; see `LICENSE`. Bundled Inter and Open Runde fonts retain their SIL Open Font License notices in
+`runtime/assets/fonts/OFL.txt` and `runtime/assets/fonts/OpenRunde-OFL.txt`.
+Open Runde is by Laurids Kern: https://github.com/lauridskern/open-runde. Keep both notices when
 redistributing the corresponding files. Deck content, images and custom themes
 remain separately owned and licensed by their authors.
 

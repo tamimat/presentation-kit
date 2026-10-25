@@ -1,5 +1,10 @@
 # Releases
 
+## 1.0.3
+
+Use bundled Open Runde Semibold for the circular slide numbers and reserve space
+below the slide for the larger badges. Other typography is unchanged.
+
 ## 1.0.2
 
 Place the larger current-slide number in a circle on the left of the progress

@@ -1,4 +1,5 @@
 /*! Presentation Kit — MIT License. Copyright (c) 2026 Presentation Kit contributors. See LICENSE. */
+@font-face { font-family: "Open Runde"; src: url(assets/fonts/OpenRunde-Semibold.woff2) format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
 :root {
   --presentation-width: 100vw;
   --presentation-height: 100vh;
@@ -37,7 +38,7 @@
 .presenting {
   --slide-top: calc(max(8px, env(safe-area-inset-top)) + 12px + var(--presentation-control-height) + 8px);
   --slide-width: calc(var(--presentation-width) - env(safe-area-inset-left) - env(safe-area-inset-right));
-  --slide-height: calc(var(--presentation-height) - var(--slide-top) - env(safe-area-inset-bottom) - 40px);
+  --slide-height: calc(var(--presentation-height) - var(--slide-top) - env(safe-area-inset-bottom) - 70px);
   position: fixed;
   top: var(--presentation-top, 0px);
   left: var(--presentation-left, 0px);
@@ -56,7 +57,7 @@
   border: 0;
   border-radius: 0;
   margin: 0;
-  padding: var(--slide-top) env(safe-area-inset-right) calc(env(safe-area-inset-bottom) + 40px) env(safe-area-inset-left);
+  padding: var(--slide-top) env(safe-area-inset-right) calc(env(safe-area-inset-bottom) + 70px) env(safe-area-inset-left);
   width: 100%;
   height: 100%;
   background: white;
@@ -121,7 +122,7 @@
   border: 1px solid #dce5ef;
   background: #f5f8fc;
   color: #687d96;
-  font: 600 16px/1 Inter,Arial,sans-serif;
+  font: 600 16px/1 "Open Runde",Inter,Arial,sans-serif;
   font-variant-numeric: tabular-nums;
   pointer-events: none;
 }
