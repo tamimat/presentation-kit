@@ -1,0 +1,33 @@
+/*! Presentation Kit — MIT License. Copyright (c) 2026 Presentation Kit contributors. See LICENSE. */
+.live-control{position:fixed;left:max(12px,env(safe-area-inset-left));top:calc(max(8px,env(safe-area-inset-top)) + 12px);z-index:1011;font:14px/1.5 Inter,system-ui,sans-serif;color:#143e79;direction:ltr}
+.presenting .live-control{position:absolute}
+.live-control button{font:inherit;cursor:pointer;border:1px solid #d4deea;border-radius:8px;background:#fff;color:#143e79;padding:9px 13px;min-height:40px}
+.live-control button:hover,.live-control button:focus-visible{background:#edf4fc;border-color:#5279a8}
+.live-control button:disabled{cursor:wait;opacity:.6}
+.live-toggle{opacity:.28;transition:opacity .15s;box-shadow:0 2px 10px #143e7908}
+.live-control:hover .live-toggle,.live-control:focus-within .live-toggle,.live-toggle[aria-expanded="true"]{opacity:1}
+.live-panel{position:absolute;top:50px;left:0;width:min(350px,calc(100vw - 24px));max-height:calc(100dvh - 130px);overflow:auto;padding:18px;background:#fffffff5;border:1px solid #d4deea;border-radius:12px;box-shadow:0 8px 40px #143e791a;backdrop-filter:blur(14px);box-sizing:border-box}
+.live-panel[hidden]{display:none}
+.live-panel h2{font-size:18px;margin:0 0 10px;color:#143e79}
+.live-panel p{font-size:14px;line-height:1.6;margin:8px 0 12px;color:#52647c}
+.live-panel input{box-sizing:border-box;width:100%;padding:10px;border:1px solid #d4deea;border-radius:6px;font:12px/1.4 Inter,system-ui,sans-serif;color:#143e79;background:#f7faff;margin:6px 0 10px}
+.live-actions{display:flex;gap:8px;flex-wrap:wrap}
+.live-panel .live-status{font-size:12px;margin-bottom:0;min-height:18px}
+body[data-caption-mode="ar"] .live-panel{direction:rtl;text-align:right}
+@media(hover:none){.live-toggle{opacity:.65}}
+@media(max-width:380px){
+  .live-control{top:calc(max(8px,env(safe-area-inset-top)) + 64px)}
+  .presenting{--slide-top:calc(max(8px,env(safe-area-inset-top)) + 112px)}
+  body:not(.presenting) header{padding-top:140px}
+}
+@media(prefers-reduced-motion:reduce){.live-toggle{transition:none}}
+@media print{.live-control{display:none}}
+
+.live-ended{width:min(580px,calc(100vw - 32px));max-height:calc(100dvh - 32px);padding:clamp(24px,5vw,42px);border:1px solid #d4deea;border-radius:18px;background:#fff;color:#143e79;box-shadow:0 18px 80px #143e7929;font:16px/1.6 Inter,Arial,sans-serif}
+.live-ended::backdrop{background:#102c4cc9;backdrop-filter:blur(8px)}
+.live-ended h2{font-size:clamp(26px,5vw,36px);line-height:1.25;margin:0 0 20px}
+.live-ended p{color:#52647c;line-height:1.7;margin:0 0 24px}
+.live-ended .lang-ar{text-align:right;margin-top:10px}
+.live-ended button{display:block;width:100%;padding:12px 18px;border:0;border-radius:8px;background:#143e79;color:white;font:inherit;cursor:pointer}
+.live-ended button:hover{background:#2368ac}
+.live-ended button .lang-ar{margin-top:2px;text-align:center}

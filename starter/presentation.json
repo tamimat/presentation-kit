@@ -1,0 +1,32 @@
+{
+  "id": "my-presentation",
+  "title": "My presentation",
+  "description": "A presentation built with Presentation Kit.",
+  "languages": [
+    {
+      "code": "en",
+      "label": "English",
+      "short": "EN"
+    },
+    {
+      "code": "ar",
+      "label": "العربية",
+      "dir": "rtl"
+    }
+  ],
+  "defaultMode": "both",
+  "cover": {
+    "title": {
+      "en": "My presentation",
+      "ar": "عرضي التقديمي"
+    },
+    "subtitle": {
+      "en": "Your subtitle",
+      "ar": "العنوان الفرعي"
+    },
+    "speaker": {
+      "en": "Your name",
+      "ar": "اسمك"
+    }
+  }
+}

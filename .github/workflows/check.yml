@@ -1,0 +1,13 @@
+name: Check kit
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - run: python3 -m unittest discover -s tests
+      - run: python3 tools/release_manifest.py && git diff --exit-code manifest.json
+      - run: python3 tools/new_presentation.py /tmp/presentation-demo && cd /tmp/presentation-demo && python3 build.py --site /tmp/public-demo --offline /tmp/demo.html
+      - run: node --check runtime/presentation.js && node --check runtime/app.js && node --check runtime/live.js
