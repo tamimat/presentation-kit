@@ -111,14 +111,27 @@
   border-radius: inherit;
 }
 
-.slide-counter {
+.slide-counter,.slide-total {
+  display: grid;
+  place-items: center;
   flex: none;
-  min-width: 64px;
-  white-space: nowrap;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #dce5ef;
+  background: #f5f8fc;
   color: #687d96;
-  font: 500 16px/1.5 Inter,Arial,sans-serif;
+  font: 600 16px/1 Inter,Arial,sans-serif;
   font-variant-numeric: tabular-nums;
   pointer-events: none;
+}
+.slide-counter {
+  width: 46px;
+  height: 46px;
+  font-size: 24px;
+  color: #285b91;
+  border-color: #ccdced;
+  background: #edf3fa;
 }
 @media print { .presentation-position { display: none !important; } }
 

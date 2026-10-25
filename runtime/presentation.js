@@ -42,9 +42,14 @@
   counter.className = 'slide-counter';
   counter.setAttribute('aria-label', 'Current slide');
   counter.setAttribute('dir', 'ltr');
+  const total = document.createElement('div');
+  total.className = 'slide-total';
+  total.setAttribute('aria-label', 'Total slides');
+  total.textContent = String(slides.length);
   const position = document.createElement('div');
   position.className = 'presentation-position';
-  position.append(counter, progress);
+  position.setAttribute('dir', 'ltr');
+  position.append(counter, progress, total);
   document.body.append(position);
 
   let index = 0;
@@ -61,7 +66,7 @@
     progress.style.setProperty('--progress', (position + 1) / slides.length);
     progress.setAttribute('aria-valuenow', String(position + 1));
     progress.setAttribute('aria-valuetext', `${position + 1} / ${slides.length}`);
-    counter.textContent = `${position + 1} / ${slides.length}`;
+    counter.textContent = String(position + 1);
   }
   updateProgress(0);
   document.addEventListener('reading-slidechange', event => {
