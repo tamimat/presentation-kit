@@ -1,5 +1,11 @@
 # Releases
 
+## 1.0.6
+
+A brief liquid droplet travels between the circular counters when advancing or
+reversing slides in Present. Rapid navigation cancels the previous motion;
+reduced-motion settings suppress it.
+
 ## 1.0.5
 
 Style both matching circular counters in dark blue with white Open Runde numbers.

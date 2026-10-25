@@ -49,7 +49,10 @@
   const position = document.createElement('div');
   position.className = 'presentation-position';
   position.setAttribute('dir', 'ltr');
-  position.append(counter, progress, total);
+  const blob = document.createElement('span');
+  blob.className = 'progress-blob';
+  blob.setAttribute('aria-hidden', 'true');
+  position.append(counter, progress, total, blob);
   document.body.append(position);
 
   let index = 0;
@@ -62,11 +65,39 @@
   const interactive = target => target.closest('a,button,input,textarea,select,label,summary,details,.presentation-toolbar,.live-control,.schema-card,.schema-popover,.live-ended');
   const fullscreenElement = () => document.fullscreenElement || document.webkitFullscreenElement;
 
+  let lastProgressIndex = null;
+  let progressAnimation;
+  function animateProgress(forward) {
+    progressAnimation?.cancel();
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || !blob.animate) return;
+    const bounds = position.getBoundingClientRect();
+    const center = element => {
+      const rect = element.getBoundingClientRect();
+      return rect.left - bounds.left + rect.width / 2;
+    };
+    const start = center(forward ? counter : total);
+    const end = center(forward ? total : counter);
+    const frame = (fraction, scale, opacity) => ({
+      transform: `translate(${start + (end - start) * fraction}px, -50%) translateX(-50%) scale(${scale})`,
+      opacity,
+    });
+    progressAnimation = blob.animate([
+      { ...frame(0, '.5, .7', 0), offset: 0 },
+      { ...frame(.1, '1.5, .8', 1), offset: .15 },
+      { ...frame(.5, '2, .65', 1), offset: .5 },
+      { ...frame(.9, '1.5, .8', 1), offset: .85 },
+      { ...frame(1, '.5, .7', 0), offset: 1 },
+    ], { duration: 650, easing: 'cubic-bezier(.4, 0, .2, 1)' });
+  }
   function updateProgress(position) {
     progress.style.setProperty('--progress', (position + 1) / slides.length);
     progress.setAttribute('aria-valuenow', String(position + 1));
     progress.setAttribute('aria-valuetext', `${position + 1} / ${slides.length}`);
     counter.textContent = String(position + 1);
+    if (lastProgressIndex !== null && position !== lastProgressIndex && presenting()) {
+      animateProgress(position > lastProgressIndex);
+    }
+    lastProgressIndex = position;
   }
   updateProgress(0);
   document.addEventListener('reading-slidechange', event => {
@@ -125,6 +156,7 @@
     document.body.classList.remove('presenting');
     document.documentElement.classList.remove('presentation-open');
     feedback.className = 'tap-feedback';
+    progressAnimation?.cancel();
     clearTimeout(feedbackTimer);
     touchStart = null;
     hadFullscreen = false;

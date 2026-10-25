@@ -112,7 +112,20 @@
   border-radius: inherit;
 }
 
+.progress-blob {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 18px;
+  height: 12px;
+  border-radius: 999px;
+  background: #143e79;
+  opacity: 0;
+  pointer-events: none;
+}
 .slide-counter,.slide-total {
+  position: relative;
+  z-index: 1;
   display: grid;
   place-items: center;
   flex: none;
