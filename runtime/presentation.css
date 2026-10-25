@@ -116,13 +116,13 @@
   display: grid;
   place-items: center;
   flex: none;
-  width: 38px;
-  height: 38px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   border: 1px solid #dce5ef;
   background: #f5f8fc;
   color: #687d96;
-  font: 600 16px/1 "Open Runde",Inter,Arial,sans-serif;
+  font: 600 24px/1 "Open Runde",Inter,Arial,sans-serif;
   font-variant-numeric: tabular-nums;
   pointer-events: none;
 }

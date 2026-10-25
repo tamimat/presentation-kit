@@ -1,5 +1,9 @@
 # Releases
 
+## 1.0.4
+
+Match the current and total slide badges at 46px with 24px rounded numerals.
+
 ## 1.0.3
 
 Use bundled Open Runde Semibold for the circular slide numbers and reserve space
