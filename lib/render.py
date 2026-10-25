@@ -88,7 +88,8 @@ def render(root, config_path):
                 heading.append(f'<h1 class="{"lang-en" if i==0 else "title-ar lang-ar"}" data-language="{code}" lang="{lang.get("htmlLang",code)}" dir="{lang.get("dir","ltr")}">{escape(title).replace(chr(10),"<br>")}</h1>')
             stage='<div class="slide-stage cover">'+''.join(heading)+'<div class="cover-subtitle">'+localized(config,cover.get('subtitle',summaries))+'</div><div class="speaker">'+localized(config,cover.get('speaker',{}))+'</div></div>'
         summary_labels={lang['code']:LABELS.get(lang['code'],LABELS['en'])['summary'] for lang in languages}
-        notes='<details class="notes"><summary>'+localized(config,summary_labels)+'</summary><div class="notes-body">'+localized(config,summaries,'p')+'</div></details>'
+        note_values={language['code']:slide.get('notes_'+language['code'],summaries[language['code']]) for language in languages}
+        notes='<details class="notes"><summary>'+localized(config,summary_labels)+'</summary><div class="notes-body">'+localized(config,note_values,'p')+'</div></details>'
         parts.append(f'<section id="slide-{n:02}" aria-labelledby="title-{n}"><div class="slide-heading"><span>{n:02} / {len(slides):02}</span><h2 id="title-{n}">'+localized(config,titles)+'</h2></div>'+stage+notes+'</section>')
     css=''.join(f'<link rel="stylesheet" href="{asset_url(root,output,".presentation-kit/runtime/"+name)}">' for name in ('presentation.css','slides.css','live.css'))
     if (root/'theme.css').exists(): css+=f'<link rel="stylesheet" href="{asset_url(root,output,"theme.css")}">'

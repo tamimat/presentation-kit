@@ -1,5 +1,10 @@
 # Releases
 
+## 1.1.1
+
+Allow each slide to provide separate localized long-form notes while keeping
+concise on-slide summaries and captions unchanged.
+
 ## 1.1.0
 
 Add a multilingual thank-you layout with a large stored QR image and readable
