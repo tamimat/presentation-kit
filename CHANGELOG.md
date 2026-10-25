@@ -1,5 +1,9 @@
 # Releases
 
+## 1.0.5
+
+Style both matching circular counters in dark blue with white Open Runde numbers.
+
 ## 1.0.4
 
 Match the current and total slide badges at 46px with 24px rounded numerals.

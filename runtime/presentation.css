@@ -119,20 +119,12 @@
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  border: 1px solid #dce5ef;
-  background: #f5f8fc;
-  color: #687d96;
+  border: 1px solid #143e79;
+  background: #143e79;
+  color: #fff;
   font: 600 24px/1 "Open Runde",Inter,Arial,sans-serif;
   font-variant-numeric: tabular-nums;
   pointer-events: none;
-}
-.slide-counter {
-  width: 46px;
-  height: 46px;
-  font-size: 24px;
-  color: #285b91;
-  border-color: #ccdced;
-  background: #edf3fa;
 }
 @media print { .presentation-position { display: none !important; } }
 
