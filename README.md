@@ -3,7 +3,7 @@
 One shared presentation app; each deck chooses its own version.
 
 The runtime contains Present/Exit, touch navigation, the hover language menu,
-progress and slide number, glass captions, full-width summaries, examples and live
+progress and slide number, captions below the image, full-width summaries, examples and live
 session following. Content, translations, images and deck-specific CSS stay in the
 presentation's repository.
 
@@ -53,7 +53,7 @@ entry point; its updater implementation is maintained inside the kit.
 - `runtime/presentation.js` / `presentation.css`: viewport, fullscreen, keyboard,
   touch and progress. The small counter and progress bar appear only in Present.
 - `runtime/app.js` / `slides.css`: reading navigation, language menu, summaries,
-  glass surfaces and optional data-example popovers.
+  caption surfaces and optional data-example popovers.
 - `runtime/live.js` / `live.css`: opt-in live following and ended-session notice.
 - `lib/render.py`: standard cover/image/text layouts.
 - `lib/exports.py`: offline embedding and allowlisted public export.

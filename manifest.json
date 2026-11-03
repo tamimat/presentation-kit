@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "1.1.1",
+  "version": "1.1.2",
   "files": {
     "runtime/LICENSE": "b8a06e9f5df60d4653cc78178ea6047c8c7bc2241f3fd5424c4bda1b74fcb0a3",
     "runtime/app.js": "3cc8bf0a8b2a562f0bf5577505f6728043ac41188318c7211623626bbe995f31",
@@ -14,7 +14,7 @@
     "runtime/live.js": "655241e695d52d39b3e91e90b5b8455dbef946308c9b5e18f466c1816ef25c71",
     "runtime/presentation.css": "e20a6a87f78fb1635b55ddff90b908fdbdf82504ad09e2d8cfb5b80a4488c619",
     "runtime/presentation.js": "e5138771bec4caa0879ceafe47c480da9aa76cbb2a97b61f96e7051e3e730df4",
-    "runtime/slides.css": "acdc89aab097567ca87facccfb7595524c523eaa888d145c44353321bdb648d2",
+    "runtime/slides.css": "6f1b0d7563b2f5ae2660ad7d11e79576459e8324f78c5001020d2f428e527f42",
     "lib/exports.py": "ad757817927d977bb639f4ca5bad0124e9752bb0ff702b22613969b92a4af29e",
     "lib/render.py": "ef6cb0f0a8f04fb9b681e5672b2d465c2ab9f5c0e7e0654764439123889cc2c0",
     "tools/new_presentation.py": "2fd574f4a68d2a1ef9f59bd31c5f3af8f2ad02fa786180cdb80071ab3bb39ec9",
